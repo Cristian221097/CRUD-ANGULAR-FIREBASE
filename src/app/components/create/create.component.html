@@ -5,10 +5,17 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
-                            <input class="form-control" type="text" placeholder="Nombre" FormControlName="nombre" />
+                            <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class]="isValidField('nombre')"/>
+                            <div class="invalid-feedback" *ngIf="EmployeesForm.get('nombre').errors?.required">
+                                <span>Introduzca el nombre.</span>
+                            </div>
+
                         </div>
                         <div class="col-md-6">
-                            <input class="form-control" type="text" placeholder="Apellido" FormControlName="apellido" />
+                            <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido"  [class]="isValidField('apellido')"/>
+                            <div class="invalid-feedback" *ngIf="EmployeesForm.get('nombre').errors?.required">
+                                <span>Introduzca el apellido.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -16,10 +23,16 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
-                            <input class="form-control" type="text" placeholder="Edad" FormControlName="edad" />
+                            <input class="form-control" type="text" placeholder="Edad" formControlName="edad"  [class]="isValidField('edad')"/>
+                            <div class="invalid-feedback" *ngIf="EmployeesForm.get('nombre').errors?.required">
+                                <span>Introduzca la edad.</span>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <input class="form-control" type="text" placeholder="Sueldo" FormControlName="sueldo" />
+                            <input class="form-control" type="text" placeholder="Sueldo" formControlName="sueldo" [class]="isValidField('sueldo')" />
+                            <div class="invalid-feedback" *ngIf="EmployeesForm.get('nombre').errors?.required">
+                                <span>Introduzca el sueldo.</span>
+                            </div>
                         </div>
                     </div> 
                 </div>

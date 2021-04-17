@@ -6,6 +6,7 @@ import { CreateComponent } from './create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     CreateComponent
@@ -14,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CreateRoutingModule,
     ReactiveFormsModule
+
   ]
 })
 export class CreateModule { }
