@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "empleado-15ede": {
+      "hosting": {
+        "CRUD-ANGULAR-FIREBASE": [
+          "empleado-15ede"
+        ]
+      }
+    }
+  }
+}

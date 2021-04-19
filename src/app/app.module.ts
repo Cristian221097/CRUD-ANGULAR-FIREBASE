@@ -7,6 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { HeaderModule } from './header/header.module';
 import  {  ToastrModule  }  from  'ngx-toastr' ;
 import  {  BrowserAnimationsModule  }  from  '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import {AngularFirestore} from '@angular/fire/firestore'
+
 
 
 @NgModule({
@@ -19,9 +23,10 @@ import  {  BrowserAnimationsModule  }  from  '@angular/platform-browser/animatio
     AppRoutingModule,
     HeaderModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

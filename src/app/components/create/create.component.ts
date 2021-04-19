@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import { EmpleadoSvcService } from 'src/app/services/empleado-svc.service';
+import { Empleado } from 'src/app/services/Empleado.interfaces';
 
 @Component({
   selector: 'app-create',
@@ -9,12 +12,27 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class CreateComponent implements OnInit {
 
+  navigation:any;
   EmployeesForm:FormGroup;
+ 
 
-  constructor(private fb:FormBuilder,private Toast:ToastrService) { }
+  constructor(private fb:FormBuilder,private Toast:ToastrService,private route:Router,private empleadoSvc:EmpleadoSvcService) {
+      this.navigation = this.route.getCurrentNavigation()?.extras;
+     console.log(this.navigation);
+     this.initForms();
+     
+}
 
   ngOnInit(): void {
-    this.initForms();
+    
+    if(typeof this.navigation =='undefined'){
+      this.route.navigate(['create']);
+    }else{
+      this.EmployeesForm.patchValue(this.navigation);
+    }
+
+    
+
   }
 
   private initForms():void{
@@ -29,7 +47,10 @@ export class CreateComponent implements OnInit {
 
   onSave():void{
     if(this.EmployeesForm.valid){
-      console.log('guardado correctamente',this.EmployeesForm.value);
+      const empleData = this.EmployeesForm.value;
+      const empId = this.navigation?.id || null;
+      this.empleadoSvc.onSavesEmployee(empleData,empId);
+     
       this.Toast.success('Guardado correctamente','Empleado');
       this.EmployeesForm.reset();
     }
