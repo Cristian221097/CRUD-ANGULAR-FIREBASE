@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { EmpleadoSvcService } from 'src/app/services/empleado-svc.service';
-import { Empleado } from 'src/app/services/Empleado.interfaces';
+
+
 
 @Component({
   selector: 'app-list',
@@ -11,6 +12,8 @@ import { Empleado } from 'src/app/services/Empleado.interfaces';
 })
 export class ListComponent implements OnInit {
   Empleados$ = this.empleadoSvc.Empleados;
+
+  filtro = "";
 
   navigationState:NavigationExtras = {
     state:{
@@ -58,10 +61,12 @@ export class ListComponent implements OnInit {
   
 
   constructor(private router:Router,private empleadoSvc:EmpleadoSvcService,private Toast:ToastrService) { 
+
    
   }
 
   ngOnInit(): void {
+    
   }
 
   onGoEdit(data:any):void{

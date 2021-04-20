@@ -1,30 +1,33 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table mt-4 table-hover">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Edad</th>
-                    <th scope="col">Sueldo</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let data of Empleados$ |async">
-                    <td>{{data.nombre}}</td>
-                    <td>{{data.apellido}}</td>
-                    <td>{{data.edad}}</td>
-                    <td>{{data.sueldo}}</td>
-                    <td class="Fila">
-                        <button class="btn btn-primary btn-sm mr-2" (click)="onGoEdit(data)">Editar</button>
-                        <button class="btn btn-danger btn-sm" (click)="onDelete(data.id)">Eliminar</button>
-                    </td>
+  <form class="form-inline my-2 my-lg-0">
+    <input id="Search" name="filtro" [(ngModel)]="filtro" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  </form>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table mt-4 table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Sueldo</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of Empleados$ |async | busqueda:filtro">
+            <td>{{data.nombre}}</td>
+            <td>{{data.apellido}}</td>
+            <td>{{data.edad}}</td>
+            <td>{{data.sueldo}}</td>
+            <td class="Fila">
+              <button class="btn btn-primary btn-sm mr-2" (click)="onGoEdit(data)">Editar</button>
+              <button class="btn btn-danger btn-sm" (click)="onDelete(data.id)">Eliminar</button>
+            </td>
 
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

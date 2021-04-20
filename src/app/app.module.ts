@@ -9,7 +9,8 @@ import  {  ToastrModule  }  from  'ngx-toastr' ;
 import  {  BrowserAnimationsModule  }  from  '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import {AngularFirestore} from '@angular/fire/firestore'
+import {AngularFirestore} from '@angular/fire/firestore';
+
 
 
 
@@ -17,6 +18,7 @@ import {AngularFirestore} from '@angular/fire/firestore'
   declarations: [
     AppComponent,
     HeaderComponent
+   
   ],
   imports: [
     BrowserModule,

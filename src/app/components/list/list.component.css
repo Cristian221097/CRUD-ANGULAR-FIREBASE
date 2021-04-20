@@ -2,3 +2,9 @@
 {
     width: 200px;
 }
+
+#Search{
+    position: absolute;
+    top: 9px;
+    left: 1300px;
+}
